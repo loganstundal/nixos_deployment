@@ -201,6 +201,9 @@ in
 
   # ---- flatpaks
   services.flatpak.enable = true;
+
+  # ---- disable askpass (graphical ssh password prompt, I cannot seem to paste long passwords in it)
+  programs.ssh.enableAskPassword = false;
   # ----------------------------------- #
 
 
