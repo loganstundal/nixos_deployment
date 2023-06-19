@@ -196,6 +196,7 @@ in
   services.tailscale = {
     package = pkgs.tailscale;
     enable  = true;
+    useRoutingFeatures = "client"; # to use --exit-node flag
   };
 
   # ---- flatpaks
