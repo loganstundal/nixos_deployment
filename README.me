@@ -1,0 +1,72 @@
+Direcory structure:
+
+├── flake.lock
+├── flake.nix
+├── hosts
+│   ├── configuration.nix
+│   ├── default.nix
+│   ├── desktop
+│   ├── home.nix
+│   └── laptop
+│       ├── default.nix
+│       └── hardware-configuration.nix
+├── modules
+│   ├── gnome.nix
+│   ├── lutris.nix
+│   ├── r.nix
+│   └── shell.nix
+└── README.me
+
+
+# ------------------------------------------------------- #
+
+## Flake on a fresh install
+`
+# - boot into iso
+  sudo su                             # become root
+  nix-env -iA nixos.git               # install git in iso live environment
+  git clone <repo url> /mnt/<path>    # /mnt/etc/nixos (good spot)
+
+# - note for new desktop os will need to setup drives and then generate initial configs for hardware
+#   which should then be copied into <git-repo>/hosts/desktop/hardware-configuration.nix
+  nixos-install --flake .#<host>      # install the os using the flake
+  reboot                              # reboot into newly installed os
+
+# - login
+  # if default nix files created
+  sudo rm -r /etc/nixos/configuration.nix # remove default configuration
+# - move build git to desired location (e.g., ~/.setup 
+`
+
+
+call order
+
+* flake.nix
+	- modules 
+* home.nix
+* configuration.nix
+
+
+
+-----
+
+## To do list
+- [ ] task 1
+ 
+## Resources
+
+- good template:
+  * https://github.com/MatthiasBenaets/nixos-config
+
+- Home-manager: manual
+  * https://nix-community.github.io/home-manager/index.html
+
+- Home-manager: appendix A - options
+  * https://nix-community.github.io/home-manager/options.html
+
+- Blog I followed to help setup home-manager customization (themes and extensions)
+  * https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+
+- NixOS Manual
+  * https://nixos.org/manual/nixos/stable
+
