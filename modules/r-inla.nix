@@ -3,6 +3,10 @@
 # code example from:
 # https://discourse.nixos.org/t/installing-an-archive-tar-gz-zip-etc-to-a-fixed-location-on-nixos/28333/2
 
+
+# the latest rinla can be downloaded from:
+# https://inla.r-inla-download.org/R/stable/src/contrib/INLA_23.04.24.tar.gz
+
 { stdenv
 , lib
 , fetchzip
