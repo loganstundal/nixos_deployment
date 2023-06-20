@@ -9,10 +9,11 @@
 # Contents
 # ----------------------------------- #
 # 01. setup + variables
-# 02. home-manager declarations and packages
-# 03. home-directory structure
-# 04. dconf settings (interface customization and extensions)
-# 05. theme setup via gtk
+# 02. imports - installed packages declared in imports for modularity
+# 03. home-manager declarations and packages
+# 04. home-directory structure
+# 05. dconf settings (interface customization and extensions)
+# 06. theme setup via gtk
 # ----------------------------------- #
 
 
@@ -23,8 +24,19 @@
 { config, pkgs, ... }:
 # ----------------------------------- #
 {
+
   # ----------------------------------- #
-  # 02. home-manager declarations and packages
+  # 02. imports
+  # ----------------------------------- #
+  imports = [
+  ( import ../modules/extensions-gnome.nix )
+  ];
+  # ----------------------------------- #
+
+
+
+  # ----------------------------------- #
+  # 03. home-manager declarations and program config
   # ----------------------------------- #
   # Allow home manager to install (if necessary) and self-manage:
   programs.home-manager.enable = true;
@@ -34,17 +46,6 @@
     username      = "logan";
     homeDirectory = "/home/logan";
     stateVersion  = "23.11";
-
-    # packages
-    packages = with pkgs; [
-      gnomeExtensions.user-themes
-      gnomeExtensions.tray-icons-reloaded
-      gnomeExtensions.vitals
-      gnomeExtensions.dash-to-panel
-      #gnomeExtensions.sound-output-device-chooser
-      gnomeExtensions.space-bar
-      gnomeExtensions.applications-menu
-    ];
 
     # main theme is broken in gnome 44 for most themes presently
     #sessionVariables.GTK_THEME = "Dracula";
@@ -61,7 +62,7 @@
 
 
   # ----------------------------------- #
-  # 03. home directory structure
+  # 04. home directory structure
   # ----------------------------------- #
   xdg.userDirs = {
    enable      = true;
@@ -75,7 +76,7 @@
 
 
   # ----------------------------------- #
-  # 04. dconf settings (interface customization and extensions)
+  # 05. dconf settings (interface customization and extensions)
   # ----------------------------------- #
   # Note: to figure out names execute: dconf watch /
   #       in a second terminal, make chances, and implement below.
@@ -136,7 +137,7 @@
 
 
   # ----------------------------------- #
-  # 05. theme setup via gtk
+  # 06. theme setup via gtk
   # ----------------------------------- #
   gtk = {
     enable = false;
