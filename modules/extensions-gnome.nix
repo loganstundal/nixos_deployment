@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs.gnomeExtensions; [
-      applications-menu
+      #applications-menu # never worked and arcmenu looks nicer
+      arcmenu
       clipboard-history
       dash-to-panel
       #sound-output-device-chooser

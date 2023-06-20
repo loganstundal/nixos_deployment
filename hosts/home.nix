@@ -122,11 +122,21 @@
       "RStudio.desktop"
     ];};    
 
+    # ---- dash-to-dock
+    "org/gnome/shell/extensions/dash-to-panel" = {
+       # hide "Show Applications" button - unneeded when arcmenu active 
+       # cannot believe dumping this hot mess of a dictionary in here worked"
+       "panel-element-positions" = ''
+       {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+       '';      
+      "panel-sizes"    = "{\"0\":32}"; # shrink panel thickness
+    };
+
     # ---- user extensions
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        "arcmenu@arcmenu.com"
         "clipboard-history@alexsaveau.dev"
         "dash-to-panel@jderose9.github.com"
         #"sound-output-device-chooser@kgshank.net"
