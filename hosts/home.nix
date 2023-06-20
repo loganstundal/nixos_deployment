@@ -124,13 +124,14 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "trayIconsReloaded@selfmade.pl"
-        "Vitals@CoreCoding.com"
+        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        "clipboard-history@alexsaveau.dev"
         "dash-to-panel@jderose9.github.com"
         #"sound-output-device-chooser@kgshank.net"
         "space-bar@luchrioh"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        "trayIconsReloaded@selfmade.pl"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "Vitals@CoreCoding.com"
       ];
     };
   };

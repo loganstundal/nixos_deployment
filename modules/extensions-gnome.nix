@@ -1,14 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-      gnomeExtensions.user-themes
-      gnomeExtensions.tray-icons-reloaded
-      gnomeExtensions.vitals
-      gnomeExtensions.dash-to-panel
-      #gnomeExtensions.sound-output-device-chooser
-      gnomeExtensions.space-bar
-      gnomeExtensions.applications-menu
+  home.packages = with pkgs.gnomeExtensions; [
+      applications-menu
+      clipboard-history
+      dash-to-panel
+      #sound-output-device-chooser
+      space-bar
+      tray-icons-reloaded
+      user-themes
+      vitals
   ];
 
 }
