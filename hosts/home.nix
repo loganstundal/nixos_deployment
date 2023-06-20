@@ -29,13 +29,8 @@
   # 02. imports
   # ----------------------------------- #
   imports = [
-    ../modules/gnome.nix
     ../modules/extensions-gnome.nix
-    ../modules/shell.nix
-
-    ../modules/r.nix
     ../modules/productivity.nix
-
     ../modules/gaming.nix
     ../modules/media.nix
   ];

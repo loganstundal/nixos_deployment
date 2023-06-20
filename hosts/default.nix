@@ -11,6 +11,9 @@
     specialArgs = { inherit user inputs; };
     modules = [
       ./laptop
+      ../modules/gnome.nix
+      ../modules/shell.nix
+      ../modules/r.nix
       ./configuration.nix
 
       home-manager.nixosModules.home-manager {

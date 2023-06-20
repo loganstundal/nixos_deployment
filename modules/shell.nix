@@ -12,8 +12,7 @@
       ohMyZsh = {
         enable = true;
         plugins = [ "git" "python" "man" ]; # see <github.com/unixorn/awesome-zsh-plugins#plugins> for MANY>
-        #theme = "robbyrussell";
-        theme = "powerlevel10k";
+        theme = "robbyrussell";
       };
     };
   };
@@ -22,9 +21,10 @@
   # ----------------------------------- #
   # environment
   # ----------------------------------- #
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     #alacritty
     zsh-powerlevel10k
+    meslo-lgs-nf
   ];
   # ----------------------------------- #
 }

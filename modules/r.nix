@@ -60,7 +60,7 @@ let
 in
 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     R
     rstudio-packages
   ];
