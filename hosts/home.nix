@@ -29,7 +29,8 @@
   # 02. imports
   # ----------------------------------- #
   imports = [
-  ( import ../modules/extensions-gnome.nix )
+    ../modules/extensions-gnome.nix
+    ../modules/productivity.nix
   ];
   # ----------------------------------- #
 
