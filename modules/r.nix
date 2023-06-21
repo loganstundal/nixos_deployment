@@ -15,7 +15,6 @@ with pkgs;
 let
   rstudio-packages = rstudioWrapper.override{ packages = with rPackages; [
     janitor
-
     Deriv
     Ecdat
     HKprocess
@@ -31,7 +30,6 @@ let
     gsl
     graph
     gridExtra
-    # INLA
     knitr
     markdown
     matrixStats
@@ -49,19 +47,25 @@ let
     terra
     tidyterra
     testthat
-    #tools
     INLAspacetime
     Matrix
     sp
-    #rinla
     tidyverse
     rstan
   ]; };
 in
 
 {
-  environment.systemPackages = with pkgs; [
-    R
-    rstudio-packages
-  ];
+  environment = {
+    systemPackages = with pkgs; [ 
+      rstudio-packages 
+      R 
+      mkl
+    ];
+    variables = {
+      #R_ENVIRON      = "$(R RHOME)/etc/Renviron";
+      #R_ENVIRON_USER = "~/.config/r/Renviron.logan";
+      R_PROFILE_USER = "~/.config/r/Rprofile.logan";
+      R_LIBS_USER    = "~/.config/r/Rlibrary.logan";
+    };
 }

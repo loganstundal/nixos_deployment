@@ -170,9 +170,6 @@ in
     variables = {
       EDITOR   = "nano";      # I should learn vim and use "nvim"
       VISUAL   = "nano";
-      R_ENVIRON_USER = "~/.config/r/Renviron.logan";
-      R_PROFILE_USER = "~/.config/r/Rprofile.logan";
-      R_LIBS_USER    = "~/.config/r/Rlibrary.logan";
     };
 
     systemPackages = with pkgs; [ 

@@ -95,9 +95,10 @@
       enable-hot-corners = false;
     };
 
-    # ---- workspace names
+    # ---- workspace names and minimize/maximize buttons
     "org/gnome/desktop/wm/preferences" = {
       workspace-names = [ "Main" ];
+      button-layout   = "appmenu:minimize,maximize,close";
     };
     "org/gnome/shell/extensions/space-bar/behavior" = {
       show-empty-workspaces = false;
@@ -127,7 +128,10 @@
       ];
     };
 
-
+    # --- text editor
+    "org/gnome/TextEditor" = {
+      restore-session = false;
+    };
     # ----------------------------------- #
 
 
