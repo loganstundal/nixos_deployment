@@ -12,8 +12,9 @@
 # 02. imports - installed packages declared in imports for modularity
 # 03. home-manager declarations and packages
 # 04. home-directory structure
-# 05. dconf settings (interface customization and extensions)
-# 06. theme setup via gtk
+# 05. dconf settings (interface customization)
+# 06. dconf settings (extensions and extension settings)
+# 07. theme setup via gtk
 # ----------------------------------- #
 
 
@@ -79,13 +80,15 @@
 
 
   # ----------------------------------- #
-  # 05. dconf settings (interface customization and extensions)
+  # dconf settings
   # ----------------------------------- #
   # Note: to figure out names execute: dconf watch /
   #       in a second terminal, make chances, and implement below.
   # see : hoverbear.org/blog/declarative-gnome-configuration-in-nixos/ for more guide
-
   dconf.settings = {
+    # ----------------------------------- #
+    # 05. dconf settings (interface customization)
+    # ----------------------------------- #
     # ---- dark-mode
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -120,16 +123,31 @@
       "org.gnome.Nautilus.desktop"
       "org.gnome.Console.desktop"
       "RStudio.desktop"
-    ];};    
+      ];
+    };
+    # ----------------------------------- #
 
-    # ---- dash-to-dock
-    "org/gnome/shell/extensions/dash-to-panel" = {
-       # hide "Show Applications" button - unneeded when arcmenu active 
-       # cannot believe dumping this hot mess of a dictionary in here worked"
-       "panel-element-positions" = ''
-         {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
-       '';      
-      "panel-sizes"    = "{\"0\":32}"; # shrink panel thickness
+
+    # ----------------------------------- #
+    # 06. dconf settings (extensions and extension settings)
+    # ----------------------------------- #
+    # ---- enabled user extensions
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "arcmenu@arcmenu.com"
+        "blur-my-shell@aunetx"
+        "clipboard-history@alexsaveau.dev"
+        "custom-hot-corners-extended@G-dH.github.com"
+        "dash-to-panel@jderose9.github.com"
+        "openweather-extension@jenslody.de"
+        #"sound-output-device-chooser@kgshank.net"
+        "space-bar@luchrioh"
+        "tiling-assistant@leleat-on-github"
+        "trayIconsReloaded@selfmade.pl"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "Vitals@CoreCoding.com"
+      ];
     };
 
     # ---- arc menu
@@ -142,26 +160,22 @@
       '';
     };
 
-    # ---- user extensions
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "arcmenu@arcmenu.com"
-        "clipboard-history@alexsaveau.dev"
-        "dash-to-panel@jderose9.github.com"
-        #"sound-output-device-chooser@kgshank.net"
-        "space-bar@luchrioh"
-        "trayIconsReloaded@selfmade.pl"
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "Vitals@CoreCoding.com"
-      ];
+    # ---- dash-to-dock
+    "org/gnome/shell/extensions/dash-to-panel" = {
+       # hide "Show Applications" button - unneeded when arcmenu active 
+       # cannot believe dumping this hot mess of a dictionary in here worked"
+       "panel-element-positions" = ''
+         {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+       '';      
+      "panel-sizes"    = "{\"0\":32}"; # shrink panel thickness
     };
+    # ----------------------------------- #
   };
   # ----------------------------------- #
 
 
   # ----------------------------------- #
-  # 06. theme setup via gtk
+  # 07. theme setup via gtk
   # ----------------------------------- #
   gtk = {
     enable = false;
