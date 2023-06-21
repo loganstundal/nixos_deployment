@@ -47,10 +47,11 @@
       #gnome-shell-extensions  # default extension manager (appears this cannot or should not be removed)
     ]);
     systemPackages = with pkgs; [
+     gnome.gnome-terminal
+     gnome.dconf-editor
+     gnome-extension-manager
      gnome.gnome-tweaks
-      gnome-extension-manager
      # gnome-menus # to use applications-menu extension (this doesnt fix shit)
-      gnome.dconf-editor
     ];
    };
 }
