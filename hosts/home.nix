@@ -150,24 +150,41 @@
       ];
     };
 
-    # ---- arc menu
+    # ---- extension customization
     "org/gnome/shell/extensions/arcmenu" = {
-      menu-layout = "Tognee";
-      vert-separator = true;
-      default-menu-view-tognee = "All_Programs";
-      directory-shortcuts-list = ''
+        menu-layout              = "Tognee";
+        vert-separator           = true;
+        default-menu-view-tognee = "All_Programs";
+        directory-shortcuts-list = ''
         [['Home', 'user-home-symbolic', 'ArcMenu_Home'], ['Documents', '. GThemedIcon folder-documents-symbolic folder-symbolic folder-documents folder', 'ArcMenu_Documents'], ['Downloads', '. GThemedIcon folder-download-symbolic folder-symbolic folder-download folder', 'ArcMenu_Downloads']]
-      '';
+        '';
     };
 
-    # ---- dash-to-dock
+    "org/gnome/shell/extensions/custom-hot-corners/monitor-0-top-right-0"    = {action = "show-overview";};
+    "org/gnome/shell/extensions/custom-hot-corners/monitor-0-bottom-right-0" = {action = "show-desktop";};
+
     "org/gnome/shell/extensions/dash-to-panel" = {
-       # hide "Show Applications" button - unneeded when arcmenu active 
-       # cannot believe dumping this hot mess of a dictionary in here worked"
-       "panel-element-positions" = ''
-         {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
-       '';      
-      "panel-sizes"    = "{\"0\":32}"; # shrink panel thickness
+        # to hide "Show Applications" button - unneeded when arcmenu active 
+        # cannot believe dumping this hot mess of a dictionary in here worked"
+        panel-element-positions = ''
+          {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"centered"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+        '';      
+        panel-menu-enable        = false;        # show icon on dash
+        panel-sizes              = "{\"0\":32}"; # shrink panel thickness
+        trans-use-custom-opacity = true;         # system tray transparent
+        trans-panel-opacity      = 0.20;         # system tray tranparency = 20%
+    };
+
+    "org/gnome/shell/extensions/openweather" = {
+      unit            = "fahrenheit";
+      wind-speed-unit = "mph";
+      city            = "38.029306,-78.4766781>Charlottesville, Virginia, United States>0";
+    };
+
+    "org/gnome/shell/extensions/tiling-assistant" = {
+      enable-advanced-experimental-features = true; # duh... not sure why this is not default
+      show-layout-panel-indicator           = true; # show dash icon
+      window-gap                            = 10;   # pixel gap between tiled windows
     };
     # ----------------------------------- #
   };
