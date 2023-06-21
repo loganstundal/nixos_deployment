@@ -135,7 +135,7 @@ in
       allowReboot = true;
       channel     = "https://nixos.org/channels/nixos-unstable";
       rebootWindow = {    # when upgrades can be applied (default of "null" means anytime)
-        lower = "01:00";
+        lower = "00:00";
         upper = "05:00";
       };
     };
@@ -178,7 +178,8 @@ in
       curl
       firefox
       git  
-      htop
+      htop            
+      lf              
       nano
       neofetch
       nextcloud-client

@@ -117,14 +117,17 @@
     };
 
     # ---- favorite apps (tray or bottom menu bar order)
-    "org/gnome/shell" = {favorite-apps = [
-      "org.gnome.Settings.desktop"
-      "firefox.desktop"
-      "org.gnome.Nautilus.desktop"
-      "org.gnome.Console.desktop"
-      "RStudio.desktop"
+    "org/gnome/shell" = {
+      favorite-apps = [
+       "org.gnome.Settings.desktop"
+       "org.gnome.Nautilus.desktop"
+       "org.gnome.Terminal.desktop" 
+       "firefox.desktop" 
+       "RStudio.desktop"
       ];
     };
+
+
     # ----------------------------------- #
 
 
