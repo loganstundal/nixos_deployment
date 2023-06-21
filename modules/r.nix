@@ -68,4 +68,5 @@ in
       R_PROFILE_USER = "~/.config/r/Rprofile.logan";
       R_LIBS_USER    = "~/.config/r/Rlibrary.logan";
     };
+  };
 }
