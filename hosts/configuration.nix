@@ -175,6 +175,7 @@ in
     systemPackages = with pkgs; [ 
       _7zz
       bat
+      cmake # open-source build system generator
       curl
       firefox
       git  

@@ -14,6 +14,7 @@
       ../modules/gnome.nix
       ../modules/shell.nix
       ../modules/r.nix
+      ../modules/docker.nix  # specifically for rinla...
       ./configuration.nix
 
       home-manager.nixosModules.home-manager {
